@@ -1,0 +1,57 @@
+﻿@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+
+@code{
+    TimeSpan stopwatchvalue = new TimeSpan();
+    bool is_stopwatchrunning = false;
+
+    async Task StopWatch()
+    { 
+        is_stopwatchrunning=true;
+        while(is_stopwatchrunning)
+        {
+            await Task.Delay(1000);
+            if(is_stopwatchrunning)
+            {
+                stopwatchvalue = stopwatchvalue.Add(new TimeSpan(0, 0, 1));
+                StateHasChanged();
+            }
+        }
+    }
+}
+
+
+
+<p><button @onclick="@(async ()=>{StopWatch();})">Start</button></p>
+<p><button @onclick="@(()=>{is_stopwatchrunning=false;})">Pause</button></p>
+<p><button @onclick="@(()=>{StopWatch();})">Resume</button></p>
+<p><button @onclick="@(async()=>{StopWatch();})">Start</button></p>
+
+
+
+
+
+
+@*@page "/counter"
+
+<PageTitle>Counter</PageTitle>
+
+<h1>Counter</h1>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+    private int currentCount = 0;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
+*@

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountDownTimer", "CountDownTimer\CountDownTimer.csproj", "{88FA96DD-3EAE-4E53-8C06-852DD1001A09}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{88FA96DD-3EAE-4E53-8C06-852DD1001A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88FA96DD-3EAE-4E53-8C06-852DD1001A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88FA96DD-3EAE-4E53-8C06-852DD1001A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88FA96DD-3EAE-4E53-8C06-852DD1001A09}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFA2FAE4-F613-47FF-85E2-01DECFFBEB2C}
+	EndGlobalSection
+EndGlobal
