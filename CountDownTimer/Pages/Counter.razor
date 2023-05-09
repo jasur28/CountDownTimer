@@ -12,11 +12,14 @@
 
 <p>@NewValue</p>
 <p>@displaytext</p>
+<p>@TimerStarted</p>
+<p>@TimerFinished</p>
 
 @code{
 
     bool is_running = false;
-
+    private DateTime TimerStarted;
+    private DateTime TimerFinished;
     private int CurrentValue { get; set; } = 0;
     private int NewValue { get; set; } = 0;
 
@@ -24,6 +27,7 @@
 
     async Task Timer()
     {
+        TimerStarted = DateTime.Now;
         NewValue = CurrentValue;
         is_running = true;
         while (is_running)
@@ -45,6 +49,7 @@
 
     Task AfterTime()
     {
+        TimerFinished = DateTime.Now;
         displaytext = "time expired";
         return Task.CompletedTask;
     }
