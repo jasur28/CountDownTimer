@@ -4,6 +4,13 @@
 
 <h1>Counter</h1>
 
+<p><button @onclick="@(async ()=>{Timer();})">Start</button></p>
+<p><button @onclick="@(()=>{is_stopwatchrunning=false;})">Pause</button></p>
+<p><button @onclick="@(()=>{Timer();})">Resume</button></p>
+<p><button @onclick="@(()=>{is_stopwatchrunning=false;stopwatchvalue=new TimeSpan();})">Stop</button></p>
+
+<p>@TimeLeft</p>
+<p>@displaytext</p>
 
 @code{
     TimeSpan stopwatchvalue = new TimeSpan();
@@ -22,14 +29,35 @@
             }
         }
     }
+
+    TimeSpan TimeLeft = new TimeSpan(0, 0, 15);
+    string displaytext = "";
+
+    //protected override Task OnInitializedAsync()
+    //{
+    //    Timer();
+    //    return base.OnInitializedAsync();
+    //}
+
+    async Task Timer()
+    {
+        while (TimeLeft > new TimeSpan())
+        {
+            await Task.Delay(1000);
+            TimeLeft = TimeLeft.Subtract(new TimeSpan(0, 0, 1));
+            StateHasChanged();
+        }
+        await AfterTime();
+        StateHasChanged();
+    }
+
+    Task AfterTime()
+    {
+        displaytext = "time expired";
+        return Task.CompletedTask;
+    }
 }
 
-
-
-<p><button @onclick="@(async ()=>{StopWatch();})">Start</button></p>
-<p><button @onclick="@(()=>{is_stopwatchrunning=false;})">Pause</button></p>
-<p><button @onclick="@(()=>{StopWatch();})">Resume</button></p>
-<p><button @onclick="@(async()=>{StopWatch();})">Start</button></p>
 
 
 
